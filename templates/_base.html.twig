@@ -1,0 +1,75 @@
+{#----------------#}
+{# templates/_base.html.twig #}
+{#----------------#}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>MGW - {% block title %}{% endblock %}</title>
+    <style>
+        @import '/css/style.css';
+        @import '/css/nav.css';
+    </style>
+</head>
+<body>
+
+<!-- login header -->
+<header>
+    <!-- nav -->
+    <nav>
+        <img src="/images/itb.jpg">
+        <h1>Graphics & Gaming Research Group</h1>
+
+        <ul>
+            <li>
+                <a href="/" class="{% block indexNavStyle %}{% endblock %}">Home page</a>
+            </li>
+            <li>
+                <a href="/members" class="{% block membersNavStyle %}{% endblock %}">Members</a>
+            </li>
+            <li>
+                <a href="/projects" class="{% block projectsNavStyle %}{% endblock %}">Projects</a>
+            </li>
+            <li>
+                <a href="/publications" class="{% block publicationsNavStyle %}{% endblock %}">Publications</a>
+            </li>
+        </ul>
+
+            {# --------- secure links - only if logged in ----------- #}
+            {% if username == 'admin' %}
+               {% include 'admin/_adminLinks.html.twig'  %}
+            {% endif %}
+
+            {% if username == 'joe' %}
+                {% include 'student/_studentLinks.html.twig'  %}
+            {% endif %}
+
+
+            {% if username == 'matt' %}
+                {% include 'member/_memberLinks.html.twig'  %}
+            {% endif %}
+
+
+        <!-- login / logout -->
+
+    </nav>
+    <!-- login / logout -->
+    <section>
+        {% if username %}
+            <h4 id="username"> You are now logged in as: {{ username }}</h4>
+
+            <a href="/logout"><h3 class="base">Logout</h3></a>
+        {% else %}
+            <a href="/login"><h3 class="base">Login</h3></a>
+        {% endif %}
+    </section>
+
+</header>
+
+<hr>
+{% block main %}
+{% endblock %}
+
+</body>
+</html>

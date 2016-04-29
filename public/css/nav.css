@@ -1,0 +1,64 @@
+nav {
+    margin: 1rem;
+    background-color:white;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+
+    display: flex;
+}
+
+nav li {
+    flex: 1;
+}
+
+nav a {
+    display: block;
+    padding: 1rem;
+    background-color:lightblue;
+
+    text-align: center;
+    border: 0.1rem solid red;
+
+    text-decoration: none;
+    color: blue;
+}
+
+nav a:hover {
+    background-color: darkseagreen;
+    color: white;
+
+    text-decoration: underline;
+}
+
+nav a.current_page {
+    background-color: darkseagreen;
+    color: yellow;
+}
+
+h1{
+    margin-left:300px;
+    font-size: 2.5em;
+    color:darkseagreen;
+}
+
+h4{
+    margin-left:900px;
+    color:darkseagreen;
+
+}
+h3.base:hover{
+    color:lightblue;
+}
+h3.base{
+    color:darkseagreen;
+    margin-left:1000px;
+}
+
+
+
+
+
